@@ -1,0 +1,302 @@
+/* --- Global Styles --- */
+body {
+  position: relative;
+  font-family: "Poppins", "Montserrat", sans-serif;
+  color: #fff;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: url("/emojibg.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* The dark overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.45
+  ); /* Adjust darkness here (0.3–0.6 looks great) */
+  z-index: 0;
+}
+
+/* Make sure content stays above the overlay */
+* {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Header --- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: linear-gradient(90deg, #000000, #000000);
+  color: rgb(255, 255, 255);
+  font-family: "Poppins", sans-serif;
+  border-radius: 0 0 25px 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: "Poppins", "Montserrat", sans-serif;
+  text-shadow: 0 0 8px rgba(46, 194, 176, 0.7);
+  transition: transform 0.3s ease;
+}
+
+.header h1:hover {
+  transform: scale(1.05);
+}
+
+.search-input {
+  width: 400px; /* was 280px */
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: white;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+
+.search-input:focus {
+  box-shadow: 0 4px 15px rgba(46, 194, 176, 0.8);
+  border-color: #2ec2b0;
+}
+
+/* --- Main Title --- */
+h1.main-title {
+  font-weight: 900;
+  font-size: 4rem;
+  text-align: center;
+  margin-top: 4rem;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+  color: #2ec2b0;
+}
+
+/* --- Dictionary Cards --- */
+.dictionary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+  margin: 5rem auto;
+  max-width: 1200px;
+  padding: 0 2rem;
+}
+
+.dictionary > .term {
+  text-align: center;
+  width: 250px;
+  padding: 2rem 1.5rem;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dictionary > .term:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.dictionary > .term dt span {
+  color: white; /* make name white */
+  font-weight: 700; /* bold */
+}
+
+.dictionary > .term dd {
+  color: white; /* make meaning white */
+  font-weight: 600; /* slightly less bold, optional */
+}
+
+.emoji {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.term:hover .emoji {
+  transform: rotate(10deg) scale(1.15);
+}
+
+dt span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2ec2b0;
+  margin-bottom: 0.5rem;
+}
+
+dd {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* --- Emoji Table --- */
+.emoji-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Poppins", sans-serif;
+  margin: 3rem auto;
+  max-width: 1200px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.emoji-table th,
+.emoji-table td {
+  color: white; /* make all text white */
+  font-weight: 600; /* bold */
+}
+
+.emoji-table th {
+  background-color: rgba(0, 0, 0, 0.3);
+  text-align: left;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.emoji-table td {
+  vertical-align: middle;
+  font-size: 1rem;
+  color: #ffffff;
+  transition: background 0.2s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.emoji-table td.emoji-cell {
+  text-align: center;
+  font-size: 2.5rem; /* bigger emojis */
+}
+
+.emoji-table tr:hover td {
+  background-color: rgba(46, 194, 176, 0.1);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+  .header {
+    padding: 15px 20px;
+  }
+  .search-input {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  h1.main-title {
+    font-size: 3rem;
+    margin-top: 2.5rem;
+  }
+  .dictionary {
+    gap: 1.5rem;
+  }
+  .dictionary > .term {
+    width: 90%;
+    padding: 1.5rem;
+  }
+  .search-input {
+    width: 150px;
+  }
+}
+
+.footer {
+  background: transparent;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 20px 20px 0 0;
+  margin-top: 3rem;
+}
+
+.footer p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer .author-name {
+  font-weight: 700;
+  color: #fff;
+}
+
+.footer .twitter-link {
+  color: #e0f7fa;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.footer .twitter-link:hover {
+  color: #2ec2b0;
+  transform: scale(1.05);
+}
+
+.twitter-icon {
+  font-size: 1.1rem;
+}
+
+/* Scrollbar width */
+::-webkit-scrollbar {
+  width: 12px; /* adjust if you want thinner */
+}
+
+/* Scrollbar track (background) */
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+/* Scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: rgba(46, 194, 176, 0.6); /* normal color */
+
+  transition: all 0.3s ease;
+}
+
+/* Thumb hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2ec2b0; /* same as your name hover color */
+}
