@@ -280,7 +280,7 @@ dd {
 
 /* Scrollbar width */
 ::-webkit-scrollbar {
-  width: 12px; /* adjust if you want thinner */
+  width: 8px; /* adjust if you want thinner */
 }
 
 /* Scrollbar track (background) */
