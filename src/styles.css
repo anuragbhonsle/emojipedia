@@ -300,3 +300,15 @@ dd {
 ::-webkit-scrollbar-thumb:hover {
   background: #2ec2b0; /* same as your name hover color */
 }
+
+/* Flex wrapper for sticky footer only when content is short */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Grow content to push footer down if page is short */
+.main-content {
+  flex: 1;
+}

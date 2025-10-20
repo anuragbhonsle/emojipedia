@@ -16,15 +16,16 @@ function App() {
   );
 
   return (
-    <div>
-      {/* 🧠 Pass search state and updater to Header */}
-      <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+    <div id="root">
+      <div className="app-container">
+        <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-      {/* 🎨 Show only matching emojis */}
-      <EmojiList emojis={filteredEmojis} />
+        <div className="main-content">
+          <EmojiList emojis={filteredEmojis} />
+        </div>
 
-      {/* Footer */}
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 }
