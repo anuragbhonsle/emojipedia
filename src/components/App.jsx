@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header from "./Header";
-import EmojiList from "./Emojilist";
+import EmojiList from "./EmojiList";
 import emojipedia from "../emojipedia";
 import Footer from "./Footer";
 
