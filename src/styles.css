@@ -1,4 +1,8 @@
 /* --- Global Styles --- */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   position: relative;
   font-family: "Poppins", "Montserrat", sans-serif;
@@ -6,6 +10,7 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  padding-top: 90px; /* Add space for fixed header height */
   overflow-x: hidden;
   background: url("/emojibg.jpg") no-repeat center center fixed;
   background-size: cover;
@@ -19,12 +24,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(
-    0,
-    0,
-    0,
-    0.45
-  ); /* Adjust darkness here (0.3–0.6 looks great) */
+  background: rgba(0, 0, 0, 0.45);
   z-index: 0;
 }
 
@@ -34,17 +34,22 @@ body::before {
   z-index: 1;
 }
 
-/* --- Header --- */
+/* --- Header (NOW FIXED) --- */
 .header {
+  position: fixed; /* Changed to fixed */
+  top: 0; /* Stick to top */
+  left: 0;
+  right: 0; /* Full width */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 18px 40px;
   background: linear-gradient(90deg, #000000, #000000);
   color: rgb(255, 255, 255);
   font-family: "Poppins", sans-serif;
   border-radius: 0 0 25px 25px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  z-index: 1000; /* Ensure it's above everything */
 }
 
 .header h1 {
@@ -56,6 +61,7 @@ body::before {
   font-family: "Poppins", "Montserrat", sans-serif;
   text-shadow: 0 0 8px rgba(46, 194, 176, 0.7);
   transition: transform 0.3s ease;
+  color: rgba(46, 194, 176, 0.7);
 }
 
 .header h1:hover {
@@ -63,7 +69,7 @@ body::before {
 }
 
 .search-input {
-  width: 400px; /* was 280px */
+  width: 400px;
   padding: 10px 20px;
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -86,12 +92,12 @@ body::before {
   border-color: #2ec2b0;
 }
 
-/* --- Main Title --- */
+/* --- Main Title (Adjusted for fixed header) --- */
 h1.main-title {
   font-weight: 900;
   font-size: 4rem;
   text-align: center;
-  margin-top: 4rem;
+  margin-top: 2rem; /* Reduced from 4rem since header is now fixed */
   text-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
   letter-spacing: 1px;
   color: #2ec2b0;
@@ -127,13 +133,13 @@ h1.main-title {
 }
 
 .dictionary > .term dt span {
-  color: white; /* make name white */
-  font-weight: 700; /* bold */
+  color: white;
+  font-weight: 700;
 }
 
 .dictionary > .term dd {
-  color: white; /* make meaning white */
-  font-weight: 600; /* slightly less bold, optional */
+  color: white;
+  font-weight: 600;
 }
 
 .emoji {
@@ -175,8 +181,8 @@ dd {
 
 .emoji-table th,
 .emoji-table td {
-  color: white; /* make all text white */
-  font-weight: 600; /* bold */
+  color: white;
+  font-weight: 600;
 }
 
 .emoji-table th {
@@ -196,7 +202,7 @@ dd {
 
 .emoji-table td.emoji-cell {
   text-align: center;
-  font-size: 2.5rem; /* bigger emojis */
+  font-size: 2.5rem;
 }
 
 .emoji-table tr:hover td {
@@ -211,12 +217,15 @@ dd {
   .search-input {
     width: 200px;
   }
+  body {
+    padding-top: 80px; /* Adjust for smaller header */
+  }
 }
 
 @media (max-width: 768px) {
   h1.main-title {
     font-size: 3rem;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem; /* Further reduced */
   }
   .dictionary {
     gap: 1.5rem;
@@ -228,10 +237,13 @@ dd {
   .search-input {
     width: 150px;
   }
+  body {
+    padding-top: 70px; /* Adjust for mobile header */
+  }
 }
 
 .footer {
-  background: transparent;
+  background: black;
   color: white;
   text-align: center;
   padding: 15px 0;
@@ -280,7 +292,7 @@ dd {
 
 /* Scrollbar width */
 ::-webkit-scrollbar {
-  width: 8px; /* adjust if you want thinner */
+  width: 8px;
 }
 
 /* Scrollbar track (background) */
@@ -291,14 +303,13 @@ dd {
 
 /* Scrollbar thumb (the draggable part) */
 ::-webkit-scrollbar-thumb {
-  background: rgba(46, 194, 176, 0.6); /* normal color */
-
+  background: rgba(46, 194, 176, 0.6);
   transition: all 0.3s ease;
 }
 
 /* Thumb hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #2ec2b0; /* same as your name hover color */
+  background: #2ec2b0;
 }
 
 /* Flex wrapper for sticky footer only when content is short */
